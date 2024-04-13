@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/contact_us_page.css" />
+    <title>KK-FITNESS</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo">
+        <a href="#"><img class="kk-fitness-logo" src="/static/media/kk-fitness-logo.jpg" alt="logo" /></a>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="/user_home/">Home</a></li>
+        <li class="link"><a href="/about_us/">About-us</a></li>
+        <li class="link"><a href="/membership/">Membership</a></li>
+        <li class="link"><a href="/product/">Product</a></li>
+        <li class="link"><a href="/contact_us/">Contact-us</a></li>
+      </ul>
+      <button class="btn">
+        <a href= "/usercart/" >Cart</a>
+     </button>
+    </nav>
+    
+    <div class="container">
+      <form action="/yoga_class_members/" method="post" >
+          {% csrf_token %}
+
+          <label for="name">Trainer Name:</label>
+          <input type="text" id="name" name="trainer_name" required value="{{yoga_class_detail.yoga_trainer_name}}">
+
+          <label for="name">Price:</label>
+          <input type="text" id="name" name="class_price" required value="{{yoga_class_detail.price}}">
+
+          <label for="name">Total Day:</label>
+          <input type="text" id="name" name="total_day" required value="{{yoga_class_detail.total_day}}">
+
+          <label for="name">Time:</label>
+          <input type="text" id="name" name="class_time" required value="{{yoga_class_detail.time}}">
+
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="user_name" required>
+  
+          <label for="email">Your Email:</label>
+          <input type="email" id="user_email" name="user_email" required>
+  
+          <button class="submit" type="submit">Book Now</button>
+      </form>
+  </div>
+<footer class="section__container footer__container">
+      <span class="bg__blur"></span>
+      <span class="bg__blur footer__blur"></span>
+      <div class="footer__col">
+        <div class="footer__logo"><img src="/static/media/kk-fitness-logo.jpg" alt="logo" /></div>
+        <p>
+          Take the first step towards a healthier, stronger you with our
+          unbeatable pricing plans. Let's sweat, achieve, and conquer together!
+        </p>
+        <div class="footer__socials">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>ADDRESS</h4>
+        <P>15/16 sadguru complex,</P>
+        <p>new-maninager,</p>
+        <p>ahmedabad,gujarat.</p>
+      </div>
+      <div class="footer__col">
+        <h4>About Us</h4>
+        <p>more info cheak about_us page</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p> 9999-444-555</p>
+        <p> 8888-145-245</p>
+        <p> kkfitness@gamil.com</p>
+        
+      </div>
+    </footer>
+    <div class="footer__bar">
+      Copyright © 2023 kk fitness all right reserve
+    </div>
+  </body>
+</html>

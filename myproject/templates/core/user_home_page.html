@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/user_home_page.css" />
+    <title>KK-FITNESS</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo">
+        <a href="#"><img class="kk-fitness-logo" src="/static/media/kk-fitness-logo.jpg"alt="logo" /></a>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="/user_home/">Home</a></li>
+        <li class="link"><a href="/about_us/">About-us</a></li>
+        <li class="link"><a href="/membership/">Membership</a></li>
+        <li class="link"><a href="/product/">Product</a></li>
+        <li class="link"><a href="/user_profile/">profile</a></li>
+      </ul>
+      <button class="btn">
+         <a style="color: white;" href= "/logout/" >Logout</a>
+      </button>
+    </nav>
+
+    <header class="section__container header__container">
+      <div class="header__content">
+        <span class="bg__blur"></span>
+        <span class="bg__blur header__blur"></span>
+        <h4>BEST FITNESS IN THE TOWN</h4>
+        <h1><span>MAKE</span> YOUR BODY SHAPE</h1>
+        <p>
+          Unleash your potential and embark on a journey towards a stronger,
+          fitter, and more confident you. Sign up for 'Make Your Body Shape' now
+          and witness the incredible transformation your body is capable of!
+        </p>
+        <button class="btn">
+         <a style="color: white;" href="/membership/">Get Started</a>
+        </button>
+      </div>
+      <div class="header__image">
+        <img src="/static/media/front.jpg" alt="header" />
+      </div>
+    </header>
+
+    <section class="section__container explore__container">
+      <div class="explore__header">
+        <h2 class="section__header">EXPLORE More</h2>
+        <div class="explore__nav">
+          <span><i class="ri-arrow-left-line"></i></span>
+          <span><i class="ri-arrow-right-line"></i></span>
+        </div>
+      </div>
+      <div class="explore__grid">
+        <div class="explore__card">
+          <span><i class="ri-boxing-fill"></i></span>
+          <h4>Current Membership: Gold</h4>
+          <p>
+            Total days left: {{ request.user.username }}
+          </p>
+          <a href="/membership/">Upgrade Now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-heart-pulse-fill"></i></span>
+          <h4>Explore Our New Product</h4>
+          <p>
+            Recentlly we add some new collection of our new product. Go and check it out and get discount also.
+          </p>
+          <a href="/product/">Explore more<i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-run-line"></i></span>
+          <h4>Work-Out planes</h4>
+          <p>
+            Get your Work-Out palne now. costamize according to your requirment.
+          </p>
+          <a href="#">Try now <i class="ri-arrow-right-line"></i></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-shopping-basket-fill"></i></span>
+          <h4>Order</h4>
+          <p>
+            See your order detail here. Know more about your order detail,
+          </p>
+          <a href="/order/">more details<i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container class__container">
+      <div class="class__image">
+        <span class="bg__blur"></span>
+        <img src="/static/media/sec.jpg" alt="class" class="class__img-1" />
+        <img src="/static/media/sec.jpg" alt="class" class="class__img-2" />
+      </div>
+      <div class="class__content">
+        <h2 class="section__header">THE CLASS YOGA</h2>
+        <p>
+          Get book your yoga class right now and start a new journey of your own fitnesss gold and with the dediction and discipline make your imagination come true. start a new begginig now by click on below button
+        </p>
+        <button class="btn">
+         <a style="color: white;" href="/yoga_class/">Book Now</a>
+        </button>
+      </div>
+      <br><br><br>
+    </section>
+
+    <section class="section__container join__container">
+      <h2 class="section__header">WHY JOIN US ?</h2>
+      <p class="section__subheader">
+        Our diverse membership base creates a friendly and supportive
+        atmosphere, where you can make friends and stay motivated.
+      </p>
+      <div class="join__image">
+        <div class="join__grid">
+          <div class="join__card">
+            <span><i class="ri-user-star-fill"></i></span>
+            <div class="join__card__content">
+              <h4>Personal Trainer</h4>
+              <p>Unlock your potential with our expert Personal Trainers.</p>
+            </div>
+          </div>
+          <div class="join__card">
+            <span><i class="ri-vidicon-fill"></i></span>
+            <div class="join__card__content">
+              <h4>Practice Sessions</h4>
+              <p>Elevate your fitness with practice sessions.</p>
+            </div>
+          </div>
+          <div class="join__card">
+            <span><i class="ri-building-line"></i></span>
+            <div class="join__card__content">
+              <h4>Good Management</h4>
+              <p>Supportive management, for your fitness success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container price__container">
+      <h2 class="section__header">OUR PRICING PLAN</h2>
+      <p class="section__subheader">
+        Our pricing plan comes with various membership tiers, each tailored to
+        cater to different preferences and fitness aspirations.
+      </p>
+      <div class="price__grid">
+        {% for m_details in membershipd %}
+        <div class="price__card">
+          <div class="price__card__content">
+            <h4>{{m_details.name}}</h4>
+            <h3>{{m_details.price}}</h3>
+            <p>
+              <i class="ri-checkbox-circle-line"></i>
+              {{m_details.total_day}}
+            </p>
+          </div>
+          <button class="btn price__btn">Join Now</button>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="review">
+      {% for info in review %}
+      <div class="section__container review__container">
+        <span><i class="ri-double-quotes-r"></i></span>
+        <div class="review__content">
+          <h4>USER REVIEW</h4>
+          <p>
+            {{info.message}}
+          </p>
+          <div class="review__footer">
+            <div class="review__member">
+              <div class="review__member__details">
+                <h4>{{info.user_name}}</h4>
+              </div>
+            </div>
+            <div class="review__nav">
+              <span><i class="ri-arrow-left-line"></i></span>
+              <span><i class="ri-arrow-right-line"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+    <footer class="section__container footer__container">
+      <span class="bg__blur"></span>
+      <span class="bg__blur footer__blur"></span>
+      <div class="footer__col">
+        <div class="footer__logo"><img src="/static/media/kk-fitness-logo.jpg"alt="logo" /></div>
+        <p>
+          Take the first step towards a healthier, stronger you with our
+          unbeatable pricing plans. Let's sweat, achieve, and conquer together!
+        </p>
+        <div class="footer__socials">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Address</h4>
+        <P>15/16 sadguru complex,</P>
+        <p>new-maninager,</p>
+        <p>ahmedabad,gujarat.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Information</h4>
+        <a href="/about_us/">About-us</a>
+        <a href="/contact_us/">Contact-us</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p> 9999-444-555</p>
+        <p> 8888-145-245</p>
+        <p> kkfitness@gamil.com</p>
+      </div>
+    </footer>
+    <div class="footer__bar">
+      Copyright © 2023 kk fitness all right reserve
+    </div>
+  </body>
+</html>

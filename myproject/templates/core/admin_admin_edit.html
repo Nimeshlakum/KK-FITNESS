@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/admin__member.css" />
+
+	<title>KK-FITNESS</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/admin_home/">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_add_product/">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Product</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_member/">
+					<i class='bx bx-user'></i>
+					<span class="text">Member</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_order/">
+					<i class='bx bxs-cart-alt'></i>
+					<span class="text">Order</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_trinaer/">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Trainer</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_membership/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Membership</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_message/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_yoga_class/">
+					<i class='bx bxs-calendar-exclamation' ></i>
+					<span class="text">Yoga class</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/user_home/">
+					<i class='bx bxs-home-smile' ></i>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_logout/" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Update</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a>Update Admin</a>
+						</li>
+					</ul>
+    				<form action="/update_admin/{{adm_d.id}}" method="post" class="registrationformfortrainer">
+						{% csrf_token %}
+
+						<label for="name">Id:</label>
+						<input type="number"  name="id" id="id_id" required value="{{adm_d.id}}">
+
+						<label for="name">Name:</label>
+						<input type="text"  name="name" id="id_name" required value="{{adm_d.name}}">
+			
+						<label for="number">Number:</label>
+						<input type="number" name="number" id="id_number" required value="{{adm_d.number}}">
+						
+						<label for="email">Email:</label>
+						<input type="email" name="email" id="id_email" required value="{{adm_d.email}}">
+						
+						<label for="password">Password:</label>
+						<input type="text" name="password" id="id_password" required value="{{adm_d.password}}">
+											
+						<button type="submit" style="background-color: #3C91E6; border: none; width: 4rem; text-align: center; color: white; height: 1rem; ">Update</button>
+					</form>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="/static/javascript/admin_member.javascript"></script>
+</body>
+</html>

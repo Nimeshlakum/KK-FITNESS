@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/home_order.css" />
+    <title>KK-FITNESS</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo">
+        <a href="#"><img class="kk-fitness-logo" src="/static/media/kk-fitness-logo.jpg"alt="logo" /></a>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="/user_home/">Home</a></li>
+        <li class="link"><a href="/about_us/">About-us</a></li>
+        <li class="link"><a href="/membership/">Membership</a></li>
+        <li class="link"><a href="/product/">Product</a></li>
+        <li class="link"><a href="/user_profile/">profile</a></li>
+      </ul>
+      <button class="btn">
+         <a style="color: white;" href= "/logout/" >Logout</a>
+      </button>
+    </nav>
+    {% if request.use.is_authenticated %}
+    <p>Welcome, {{ user.name }}!</p>
+    <!-- Other content for logged-in users -->
+    {% else %}
+    <p>Please log in to continue.</p>
+    <!-- Login form or other content for anonymous users -->
+    {% endif %}
+
+
+    <section class="order">
+      <form action="/user_product_order/" method="post">
+        {% csrf_token %}
+
+        <label for="name">Product Id:</label>
+        <input type="text" name="product_id" id="product_id" required value="{{combine.order_detail.id}}">
+
+        <label for="name">product Name:</label>
+        <input type="text" name="product_name" id="product_name" required value="{{combine.order_detail.name}}">
+
+        <label for="name">Product price:</label>
+        <input type="text" name="product_price" id="product_price" required value="{{combine.order_detail.price}}">
+
+        <label for="name">product Quantity:</label>
+        <input type="text" name="product_quantity" id="product_quantity" required value="{{combine.order_detail.quantity}}">
+
+        <label for="name">Your Name:</label>
+        <input type="text" name="name"  required value="{{combine.user_detail.name}}">
+
+        <label for="email">Your Email:</label>
+        <input type="email" name="email" required value="{{combine.user_detail.email}}">
+
+        <label for="text">Your Address:</label>
+        <input type="text" name="address" required value="{{name}}">
+
+        <button class="submit" type="submit">Order now</button>
+      </form>
+    </section>
+
+    <footer class="section__container footer__container">
+      <span class="bg__blur"></span>
+      <span class="bg__blur footer__blur"></span>
+      <div class="footer__col">
+        <div class="footer__logo">
+          <img src="/static/media/kk-fitness-logo.jpg" alt="logo" />
+        </div>
+        <p>
+          Take the first step towards a healthier, stronger you with our
+          unbeatable pricing plans. Let's sweat, achieve, and conquer together!
+        </p>
+        <div class="footer__socials">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>ADDRESS</h4>
+        <p>15/16 sadguru complex,</p>
+        <p>new-maninager,</p>
+        <p>ahmedabad,gujarat.</p>
+      </div>
+      <div class="footer__col">
+        <h4>About Us</h4>
+        <p>more info cheak about_us_page</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p>9999-444-555</p>
+        <p>8888-145-245</p>
+        <p>kkfitness@gamil.com</p>
+      </div>
+    </footer>
+    <div class="footer__bar">Copyright © 2023 kk fitness all right reserve</div>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/admin_add_product.css">
+
+	<title>KK-FITNESS</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="/admin_home/" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/admin_home/">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_add_product/">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Product</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_member/">
+					<i class='bx bx-user'></i>
+					<span class="text">Member</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_order/">
+					<i class='bx bxs-cart-alt'></i>
+					<span class="text">Order</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_trinaer/">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Trainer</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_membership/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Membership</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_message/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_yoga_class/">
+					<i class='bx bxs-calendar-exclamation' ></i>
+					<span class="text">Yoga class</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/user_home/">
+					<i class='bx bxs-home-smile' ></i>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_logout/" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Add product</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a>Add product</a>
+						</li>
+					</ul>
+					<form action="/addproduct/" method="post" class="registrationformfortrainer">
+						{% csrf_token %}
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" required>
+			
+						<label for="Price">Price:</label>
+						<input type="text" id="price" name="price" number>
+						
+						<label for="Quantity">Quantity:</label>
+						<input type="text" id="quantity" name="quantity" required>
+											
+						<label for="Description">Description:</label>
+						<input type="text" id="description" name="description" required>
+
+						<button class="add_product" type="submit" style="background-color: #3C91E6; border: none; width: 4rem; text-align: center; color: white; height: 1rem; ">Add</button>
+					</form>
+					<br>
+					<h3>Product Detail</h3>
+					<table>
+						<thead style="background-color: #3C91E6; color: white; width: 100rem;">
+							<tr>
+								<th style="width: 15rem;">Id</th>
+								<th style="width: 15rem;">Name</th>
+								<th style="width: 15rem;">Price</th>
+								<th style="width: 15rem;">Quantity</th>
+								<th style="width: 15rem;">Description</th>
+								<th style="width: 15rem;">Update</th>
+								<th style="width: 15rem;">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for new_product in pproduct %}
+							<tr>
+								<td style="text-align: center;">{{ new_product.id }}</td>
+								<td style="text-align: center;">{{ new_product.name }}</td>
+								<td style="text-align: center;">{{ new_product.price }}</td>
+								<td style="text-align: center;">{{ new_product.quantity }}</td>
+								<td style="text-align: center;">{{ new_product.description }}</td>
+								<td style="text-align: center;">
+									
+									<a href="/edit_product/{{new_product.id}}">
+										<i class='bx bx-edit' ></i>
+								</td>
+								<td style="text-align: center;">
+									<a href="/delete_product/{{new_product.id}}">
+										<i class='bx bxs-message-square-x'></i>
+									</a>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					
+					</span>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="/static/javascript/admin_add_product.js"> </script>
+</body>
+</html>

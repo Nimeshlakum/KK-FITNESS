@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="/static/css/admin_add_product.css">
+
+	<title>KK-FITNESS</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/admin_home/">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_add_product/">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">Product</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_member/">
+					<i class='bx bx-user'></i>
+					<span class="text">Member</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_order/">
+					<i class='bx bxs-cart-alt'></i>
+					<span class="text">Order</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_trinaer/">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Trainer</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_membership/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Membership</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_message/">
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_yoga_class/">
+					<i class='bx bxs-calendar-exclamation' ></i>
+					<span class="text">Yoga class</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="/user_home/">
+					<i class='bx bxs-home-smile' ></i>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="/admin_logout/" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Order</h1>
+					<h3>Product Detail</h3>
+					<table>
+						<thead style="background-color: #3C91E6; color: white; width: 100rem;">
+							<tr>
+								<th style="width: 15rem;">order Id</th>
+								<th style="width: 15rem;">Product Id</th>
+								<th style="width: 15rem;">Product Name</th>
+								<th style="width: 15rem;">Product Price</th>
+								<th style="width: 15rem;">Product Quantity</th>
+								<th style="width: 15rem;">User Name</th>
+								<th style="width: 15rem;">User Eamil</th>
+								<th style="width: 15rem;">User Address</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for ord in order_d %}
+							<tr>
+								<td style="text-align: center;">{{ ord.id }}</td>
+								<td style="text-align: center;">{{ ord.product_id }}</td>
+								<td style="text-align: center;">{{ ord.product_name }}</td>
+								<td style="text-align: center;">{{ ord.product_price }}</td>
+								<td style="text-align: center;">{{ ord.product_quantity }}</td>
+								<td style="text-align: center;">{{ ord.user_name }}</td>
+								<td style="text-align: center;">{{ ord.user_email }}</td>
+								<td style="text-align: center;">{{ ord.user_address }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="/static/javascript/admin_order.javascript"></script>
+</body>
+</html>

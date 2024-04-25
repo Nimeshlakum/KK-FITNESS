@@ -21,16 +21,54 @@
         <li class="link"><a href="/membership/">Membership</a></li>
         <li class="link"><a href="/product/">Product</a></li>
         <li class="link"><a href="/user_profile/">profile</a></li>
+        <li class="link"><a href="/trainer/">Trainer</a></li>
+
       </ul>
       <button class="btn">
          <a style="color: white;" href= "/logout/" >Logout</a>
       </button>
     </nav>
 
-    {% for yoga_class in y_detail %}
+    <div class="price__grid">
+      {% for product_det in yoga %}
+      {% if product_det.user_name == request.user.username %}
+      <div class="price__card">
+        <div class="price__card__content">
+          <h4 style="text-align: center;">CURRENT YOGA-CLASS INFORMATION</h4>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Trianer Name : {{product_det.trainer_name}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Class Price : {{product_det.class_price}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Total Day Left : {{product_det.total_day}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Class Time : {{product_det.class_time}}
+          </p>
+          </p>
+          <a href="" style="display: grid;">
+            <button class="btn price__btn">Upgrade Now</button>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
       <div class="price__grid">
+        {% for yoga_class in y_detail %}
+
         <div class="price__card">
           <div class="price__card__content">
+            <h4 style="text-align: center;">YOGA-CLASS INFORMATION</h4>
+
             <h4>Trainer Name: {{yoga_class.yoga_trainer_name}}</h4>
             <h3>price: {{yoga_class.price}}</h3>
             <p>
@@ -46,8 +84,8 @@
           <button class="btn price__btn">Join Now</button>
           </a>
         </div>
-      </div>
     {% endfor %}
+    </div>
 
 <footer class="section__container footer__container">
       <span class="bg__blur"></span>

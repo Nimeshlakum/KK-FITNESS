@@ -21,16 +21,49 @@
         <li class="link"><a href="/membership/">Membership</a></li>
         <li class="link"><a href="/product/">Product</a></li>
         <li class="link"><a href="/user_profile/">profile</a></li>
+        <li class="link"><a href="/trainer/">Trainer</a></li>
+
       </ul>
       <button class="btn">
          <a style="color: white;" href= "/logout/" >Logout</a>
       </button>
     </nav>
 
-    {% for membership_det in m_detail %}
+    <div class="price__grid">
+      {% for product_det in mem %}
+      {% if product_det.user_name == request.user.username %}
+      <div class="price__card">
+        <div class="price__card__content">
+          <h4 style="text-align: center;">CURRENT MEMBERSHIP INFORMATION</h4>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Membership Type : {{product_det.membership_type}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Membership Price : {{product_det.membership_price}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Membership Total Day Left : {{product_det.membership_total_day}}
+          </p>
+        </div>
+        <div>
+          <a href="" style="display: grid;">
+            <button class="btn price__btn">Upgrade Now</button>
+          </a>
+        </div>
+      </div>
+      
+      {% endif %}
+      {% endfor %}
+    </div>
       <div class="price__grid">
+        {% for membership_det in m_detail %}
         <div class="price__card">
           <div class="price__card__content">
+            <h4 style="text-align: center;">MEMBERSHIP PLAN</h4>
+
             <h4>Membership Type: {{membership_det.name}}</h4>
             <h3>Price: {{membership_det.price}}</h3>
             <p>
@@ -42,10 +75,9 @@
           <button  class="btn price__btn">Join Now</button>
           </a>
         </div>
+        {% endfor %}
       </div>
-    {% endfor %}
-
-<footer class="section__container footer__container">
+  <footer class="section__container footer__container">
       <span class="bg__blur"></span>
       <span class="bg__blur footer__blur"></span>
       <div class="footer__col">

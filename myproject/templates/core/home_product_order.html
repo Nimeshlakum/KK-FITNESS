@@ -21,44 +21,46 @@
         <li class="link"><a href="/membership/">Membership</a></li>
         <li class="link"><a href="/product/">Product</a></li>
         <li class="link"><a href="/user_profile/">profile</a></li>
+        <li class="link"><a href="/trainer/">Trainer</a></li>
       </ul>
       <button class="btn">
          <a style="color: white;" href= "/logout/" >Logout</a>
       </button>
     </nav>
-    {% if request.use.is_authenticated %}
-    <p>Welcome, {{ user.name }}!</p>
-    <!-- Other content for logged-in users -->
-    {% else %}
-    <p>Please log in to continue.</p>
-    <!-- Login form or other content for anonymous users -->
-    {% endif %}
-
 
     <section class="order">
       <form action="/user_product_order/" method="post">
         {% csrf_token %}
 
         <label for="name">Product Id:</label>
-        <input type="text" name="product_id" id="product_id" required value="{{combine.order_detail.id}}">
+        <input type="text" name="product_id" id="product_id" required value="{{order_detail.id}}">
 
         <label for="name">product Name:</label>
-        <input type="text" name="product_name" id="product_name" required value="{{combine.order_detail.name}}">
+        <input type="text" name="product_name" id="product_name" required value="{{order_detail.name}}">
 
         <label for="name">Product price:</label>
-        <input type="text" name="product_price" id="product_price" required value="{{combine.order_detail.price}}">
+        <input type="text" name="product_price" id="product_price" required value="{{order_detail.price}}">
 
         <label for="name">product Quantity:</label>
-        <input type="text" name="product_quantity" id="product_quantity" required value="{{combine.order_detail.quantity}}">
+        <input type="text" name="product_quantity" id="product_quantity" required value="{{order_detail.quantity}}">
 
         <label for="name">Your Name:</label>
-        <input type="text" name="name"  required value="{{combine.user_detail.name}}">
+        <input type="text" name="user_name"  required value="{{request.user.username}}">
 
         <label for="email">Your Email:</label>
-        <input type="email" name="email" required value="{{combine.user_detail.email}}">
+        <input type="email" name="user_email" required value="{{request.user.email}}">
 
         <label for="text">Your Address:</label>
-        <input type="text" name="address" required value="{{name}}">
+        <input type="text" name="user_address" required value="{{address.user_address}}">
+
+        <label for="text">Your City:</label>
+        <input type="text" name="user_city" required value="{{address.user_city}}">
+
+        <label for="text">Your State:</label>
+        <input type="text" name="user_state" required value="{{address.user_state}}">
+
+        <label for="text">Your Country:</label>
+        <input type="text" name="user_country" required value="{{address.user_country}}">
 
         <button class="submit" type="submit">Order now</button>
       </form>

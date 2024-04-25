@@ -29,55 +29,65 @@
   </nav>
 
   <body>
+
     <div class="price__grid">
-      {% for order_itemsi in order_detail %}
-      {% if order_itemsi.user_name == request.user.username %}
+      {% for product_det in t %}
+      {% if product_det.user_name == request.user.username %}
       <div class="price__card">
         <div class="price__card__content">
-          <h4 style="text-align: center;">Order id : {{order_itemsi.id}}</h4>
+          <h4 style="text-align: center;">HIRE-TRIANER INFORMATION</h4>
           <p>
             <i class="ri-checkbox-circle-line"></i>
-            Product id : {{order_itemsi.product_id}}
+            Trianer Name : {{product_det.trainer_name}}
           </p>
           <p>
             <i class="ri-checkbox-circle-line"></i>
-            Product Name : {{order_itemsi.product_name}}
+            Trianer Number : {{product_det.trainer_number}}
           </p>
           <p>
             <i class="ri-checkbox-circle-line"></i>
-            Product Price : {{order_itemsi.product_price}}
+            Trianer R-Mail : {{product_det.trainer_email}}
           </p>
           <p>
             <i class="ri-checkbox-circle-line"></i>
-            Product Quantity : {{order_itemsi.product_quantity}}
+            Total Day Left : {{product_det.total_day}}
           </p>
-          <p>
-            <i class="ri-checkbox-circle-line"></i>
-            Your Address : {{order_itemsi.user_address}}
           </p>
-          <p>
-            <i class="ri-checkbox-circle-line"></i>
-            Your City : {{order_itemsi.user_city}}
-          </p>
-          <p>
-            <i class="ri-checkbox-circle-line"></i>
-            Your State : {{order_itemsi.user_state}}
-          </p>
-          <p>
-            <i class="ri-checkbox-circle-line"></i>
-            Your country : {{order_itemsi.user_country}}
-          </p>
-          
-        </div>
-        <div>
-          <a href="/cartordercancle/{{order_itemsi.id}}" style="display: grid;">
-            <button class="btn price__btn">Cancle Order</button>
+          <a href="" style="display: grid;">
+            <button class="btn price__btn">Upgrade Now</button>
           </a>
         </div>
       </div>
       {% endif %}
       {% endfor %}
     </div>
+    <div class="price__grid">
+
+      {% for product_det in tra %}
+      <div class="price__card">
+        <div class="price__card__content">
+          <h4 style="text-align: center;">TRAINER INFORMATION</h4>
+
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Name : {{product_det.name}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            Number : {{product_det.number}}
+          </p>
+          <p>
+            <i class="ri-checkbox-circle-line"></i>
+            E_mail : {{product_det.email}}
+          </p>
+        </div>
+        <div>
+          <a href="/hiretrainer/{{product_det.id}}" style="display: grid;">
+            <button class="btn price__btn">Hire Trainer</button>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </body>
 

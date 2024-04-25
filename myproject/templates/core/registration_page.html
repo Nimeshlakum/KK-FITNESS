@@ -8,15 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <form action="/adduser/" method="post" class="registrationform">
+        <form action="/signup/" method="post" class="registrationform">
             {% csrf_token %}
             <h2>Register</h2>
             <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="username" name="username" required>
 
-            <label for="name">Number:</label>
-            <input type="number" id="number" name="number" number>
-            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             

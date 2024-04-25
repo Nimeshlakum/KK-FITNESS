@@ -8,6 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/css/user_home_page.css" />
+  
     <title>KK-FITNESS</title>
   </head>
   <body>
@@ -21,6 +22,8 @@
         <li class="link"><a href="/membership/">Membership</a></li>
         <li class="link"><a href="/product/">Product</a></li>
         <li class="link"><a href="/user_profile/">profile</a></li>
+        <li class="link"><a href="/trainer/">Trainer</a></li>
+
       </ul>
       <button class="btn">
          <a style="color: white;" href= "/logout/" >Logout</a>
@@ -60,7 +63,11 @@
           <span><i class="ri-boxing-fill"></i></span>
           <h4>Current Membership: Gold</h4>
           <p>
-            Total days left: {{ request.user.username }}
+            {% for i in mem %}
+            {% if i.user_name == request.user.username %}
+            Total days left: {{ i.membership_total_day }}
+            {%endif%}
+            {%endfor%}
           </p>
           <a href="/membership/">Upgrade Now <i class="ri-arrow-right-line"></i></a>
         </div>
@@ -74,19 +81,19 @@
         </div>
         <div class="explore__card">
           <span><i class="ri-run-line"></i></span>
-          <h4>Work-Out planes</h4>
+          <h4>Order</h4>
           <p>
-            Get your Work-Out palne now. costamize according to your requirment.
+            See your  order here. Know more about your order detail.
           </p>
-          <a href="#">Try now <i class="ri-arrow-right-line"></i></a>
+          <a href="/order/">Show now <i class="ri-arrow-right-line"></i></a>
         </div>
         <div class="explore__card">
           <span><i class="ri-shopping-basket-fill"></i></span>
-          <h4>Order</h4>
+          <h4>cart</h4>
           <p>
-            See your order detail here. Know more about your order detail,
+            See your cart detail here. Know more about your cart detail.
           </p>
-          <a href="/order/">more details<i class="ri-arrow-right-line"></i></a>
+          <a href="/usercart/">more details<i class="ri-arrow-right-line"></i></a>
         </div>
       </div>
     </section>
@@ -156,7 +163,7 @@
             <h3>{{m_details.price}}</h3>
             <p>
               <i class="ri-checkbox-circle-line"></i>
-              {{m_details.total_day}}
+              Total Day : {{m_details.total_day}}
             </p>
           </div>
           <button class="btn price__btn">Join Now</button>

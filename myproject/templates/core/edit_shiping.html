@@ -7,7 +7,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/static/css/product_page.css">
+    <link rel="stylesheet" href="/static/css/home_order.css" />
     <title>KK-FITNESS</title>
   </head>
   <body>
@@ -22,48 +22,48 @@
         <li class="link"><a href="/product/">Product</a></li>
         <li class="link"><a href="/user_profile/">profile</a></li>
         <li class="link"><a href="/trainer/">Trainer</a></li>
-
       </ul>
       <button class="btn">
          <a style="color: white;" href= "/logout/" >Logout</a>
       </button>
     </nav>
-    <body>
-        <div class="price__grid">
-          {% for product_det in p_detail %}
-          <div class="price__card">
-            <div class="price__card__content">
-              <h4>{{product_det.name}}</h4>
-              <h3>{{product_det.price}}</h3>
-              <p>
-                <i class="ri-checkbox-circle-line"></i>
-                {{product_det.quantity}}
-              </p>
-              <p>
-                <i class="ri-checkbox-circle-line"></i>
-                {{product_det.description}}
-              </p>
-            </div>
-            <div>
-            <a href="/home_product_order/{{product_det.id}}" style="display: grid;">
-              <button class="btn price__btn">byu Now</button>
-            </a>
-            </div>
-            
-            <a href="/addproducttocart/{{product_det.id}}" style="display: grid;">
-            <button class="btn price__btn">add to cart</button>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-    </body>
 
+    <section class="order">
+      <form action="/updateshiping/" method="post">
+        {% csrf_token %}
 
-  <footer class="section__container footer__container">
+        <label for="name">Your name:</label>
+        <input type="text" name="user_name"  required value="{{request.user.username}}">
+
+        <label for="emailname">Your e-mail:</label>
+        <input type="email" name="user_email" required value="{{request.user.email}}">
+
+        <label for="name">Your Number:</label>
+        <input type="number" name="user_number"  required value="{{s.user_number}}">
+
+        <label for="name">Your address:</label>
+        <input type="text" name="user_address" required value="{{s.user_address}}">
+
+        <label for="name">Your city:</label>
+        <input type="text" name="user_city" required value="{{s.user_city}}">
+
+        <label for="name">Your state:</label>
+        <input type="text" name="user_state"  required value="{{s.user_state}}">
+
+        <label for="name">Your country:</label>
+        <input type="text" name="user_country" required value="{{s.user_country}}">
+
+        <button class="submit" type="submit">Hire now</button>
+      </form>
+    </section>
+
+    <footer class="section__container footer__container">
       <span class="bg__blur"></span>
       <span class="bg__blur footer__blur"></span>
       <div class="footer__col">
-        <div class="footer__logo"><img src="/static/media/kk-fitness-logo.jpg" alt="logo" /></div>
+        <div class="footer__logo">
+          <img src="/static/media/kk-fitness-logo.jpg" alt="logo" />
+        </div>
         <p>
           Take the first step towards a healthier, stronger you with our
           unbeatable pricing plans. Let's sweat, achieve, and conquer together!
@@ -76,7 +76,7 @@
       </div>
       <div class="footer__col">
         <h4>ADDRESS</h4>
-        <P>15/16 sadguru complex,</P>
+        <p>15/16 sadguru complex,</p>
         <p>new-maninager,</p>
         <p>ahmedabad,gujarat.</p>
       </div>
@@ -86,12 +86,11 @@
       </div>
       <div class="footer__col">
         <h4>Contact</h4>
-        <p> 9999-444-555</p>
-        <p> 8888-145-245</p>
-        <p> kkfitness@gamil.com</p>
+        <p>9999-444-555</p>
+        <p>8888-145-245</p>
+        <p>kkfitness@gamil.com</p>
+      </div>
     </footer>
-    <div class="footer__bar">
-      Copyright © 2023 kk fitness all right reserve
-    </div>
+    <div class="footer__bar">Copyright © 2023 kk fitness all right reserve</div>
   </body>
 </html>

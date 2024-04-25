@@ -4,7 +4,7 @@ from myapp.models import *
 
 class userform(forms.ModelForm):
     class Meta:
-        model = users
+        model = user
         fields = ['username','number','email','password']
 
 class contactform(forms.ModelForm):
@@ -36,7 +36,7 @@ class yogaclassform(forms.ModelForm):
        
 class adminform(forms.ModelForm):
     class Meta:
-        model = admins
+        model = admin
         fields = ['username','number','email','password'] 
 
 class userpurchasemembership(forms.ModelForm):
@@ -53,11 +53,23 @@ class yogaclassbookmember(forms.ModelForm):
 
 class userorderform(forms.ModelForm):
     class Meta:
-        model = userorder
-        fields = ['product_id','product_name','product_price','product_quantity','user_name','user_email','user_address']
+        model = order
+        fields = ['product_id','product_name','product_price','product_quantity','user_name','user_email','user_address','user_city','user_state','user_country']
 
 
 class cartform(forms.ModelForm):
     class Meta:
         model = cart
         fields = ['product_id','product_name','product_price','product_quantity']
+
+
+class shipingform(forms.ModelForm):
+    class Meta:
+        model = shiping
+        fields = ['user_name','user_email','user_number','user_address','user_city','user_state','user_country']
+
+
+class hiretrainerform(forms.ModelForm):
+    class Meta:
+        model = hiretrainer
+        fields = ['trainer_id','trainer_name','trainer_number','trainer_email','total_day','user_name','user_email']

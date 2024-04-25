@@ -37,8 +37,15 @@ urlpatterns = [
     path("yoga_class/",user_yoga_class),
     path("home_product_order/<int:id>",product_order),
     path("home_product_cart_order/",product_cart_order),
-    path("adduser/",adduser),
+    path("signup/",signup),
     path("usermessage/",proble),
+    path("trainer/",trainer),
+    path("hiretrainer/<int:id>",hiretrainer_),
+    path("userhiretrainer/",userhiretrainer),
+    path("shiping/",shiping_),
+    path("addshiping/",addshiping_),
+    path("editshiping/",editshiping_),
+    path("updateshiping/",updateshiping_),
 
 
     path("addtrainer/",addtrainer),
@@ -48,8 +55,10 @@ urlpatterns = [
     path("addadmin/",addadmin),
 
 
-    path("usercart/",usercart),
+    path("usercart/",usercart_),
     path("addproducttocart/<int:id>",addproducttocart),
+    path("cartorder/",cartorder),
+    path("cartordercancle/<int:id>",del_order),
 
 
     path('delete_user/<int:id>',del_user, name='del_user'),

@@ -201,7 +201,7 @@ def hiretrainer_(request,id):
     name = request.user.username
     try:
         m = hiretrainer.objects.get(user_name=name)
-    except shiping.DoesNotExist:
+    except hiretrainer.DoesNotExist:
         m = None  # Handle the case where shipping information doesn't exist
     combine = {
         't': t,

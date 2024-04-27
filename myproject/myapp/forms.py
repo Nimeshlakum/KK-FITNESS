@@ -2,16 +2,11 @@ from django.contrib.auth import authenticate
 from django import forms
 from myapp.models import *
 
-class userform(forms.ModelForm):
-    class Meta:
-        model = user
-        fields = ['username','number','email','password']
 
 class contactform(forms.ModelForm):
     class Meta:
         model = message
-        fields = ['user_name','email','message']
-       
+        fields = ['user_name','email','message']    
 
 class trainerform(forms.ModelForm):
     class Meta:
@@ -55,13 +50,6 @@ class userorderform(forms.ModelForm):
     class Meta:
         model = order
         fields = ['product_id','product_name','product_price','product_quantity','user_name','user_email','user_address','user_city','user_state','user_country']
-
-
-class cartform(forms.ModelForm):
-    class Meta:
-        model = cart
-        fields = ['product_id','product_name','product_price','product_quantity']
-
 
 class shipingform(forms.ModelForm):
     class Meta:

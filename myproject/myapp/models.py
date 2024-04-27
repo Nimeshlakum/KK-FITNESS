@@ -4,37 +4,37 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 
-class users(models.Model):
-    username=models.CharField(max_length=30)
-    number=models.IntegerField(max_length=10)
-    email=models.EmailField(max_length=30)
-    password=models.CharField(max_length=30)
-    last_login=models.DateTimeField(max_length=10)
+# class users(models.Model):
+#     username=models.CharField(max_length=30)
+#     number=models.IntegerField(max_length=10)
+#     email=models.EmailField(max_length=30)
+#     password=models.CharField(max_length=30)
+#     last_login=models.DateTimeField(max_length=10)
 
-    class Meta:
-        db_table = 'users'
-
-
-class user(models.Model):
-    username=models.CharField(max_length=30)
-    number=models.IntegerField(max_length=10)
-    email=models.EmailField(max_length=30)
-    password=models.CharField(max_length=30)
-    last_login=models.DateTimeField(null=True, blank=True)
-
-    class Meta:
-        db_table = 'user'
+#     class Meta:
+#         db_table = 'users'
 
 
-class admins(models.Model):
-    username=models.CharField(max_length=30)
-    number=models.IntegerField(max_length=10)
-    email=models.EmailField(max_length=30)
-    password=models.CharField(max_length=30)
-    last_login=models.DateTimeField(max_length=10)
+# class user(models.Model):
+#     username=models.CharField(max_length=30)
+#     number=models.IntegerField(max_length=10)
+#     email=models.EmailField(max_length=30)
+#     password=models.CharField(max_length=30)
+#     last_login=models.DateTimeField(null=True, blank=True)
 
-    class Meta:
-        db_table = 'admins'
+#     class Meta:
+#         db_table = 'user'
+
+
+# class admins(models.Model):
+#     username=models.CharField(max_length=30)
+#     number=models.IntegerField(max_length=10)
+#     email=models.EmailField(max_length=30)
+#     password=models.CharField(max_length=30)
+#     last_login=models.DateTimeField(max_length=10)
+
+#     class Meta:
+#         db_table = 'admins'
 
 class admin(models.Model):
     username=models.CharField(max_length=30)
@@ -117,27 +117,27 @@ class yoga_class_member(models.Model):
 
 
 
-class userorder(models.Model):
-    product_id=models.CharField(max_length=30)
-    product_name=models.CharField(max_length=30)
-    product_price=models.IntegerField(max_length=30)
-    product_quantity=models.CharField(max_length=30)
-    user_name=models.CharField(max_length=10)
-    user_email=models.CharField(max_length=30)
-    user_address=models.CharField(max_length=100)
+# class userorder(models.Model):
+#     product_id=models.CharField(max_length=30)
+#     product_name=models.CharField(max_length=30)
+#     product_price=models.IntegerField(max_length=30)
+#     product_quantity=models.CharField(max_length=30)
+#     user_name=models.CharField(max_length=10)
+#     user_email=models.CharField(max_length=30)
+#     user_address=models.CharField(max_length=100)
 
-    class Meta:
-        db_table = 'userorder'
+#     class Meta:
+#         db_table = 'userorder'
 
 
-class cart(models.Model):
-    product_id=models.CharField(max_length=30)
-    product_name=models.CharField(max_length=30)
-    product_price=models.IntegerField(max_length=30)
-    product_quantity=models.CharField(max_length=30)
+# class cart(models.Model):
+#     product_id=models.CharField(max_length=30)
+#     product_name=models.CharField(max_length=30)
+#     product_price=models.IntegerField(max_length=30)
+#     product_quantity=models.CharField(max_length=30)
 
-    class Meta:
-        db_table = 'cart'
+#     class Meta:
+#         db_table = 'cart'
 
 class usercart(models.Model):
     product_id=models.CharField(max_length=30)

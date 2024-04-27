@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'kk_fitness',
+		'NAME': 'gym_management',
 		'USER': 'root',
 		'PASSWORD': '',
 		'HOST':'localhost',
